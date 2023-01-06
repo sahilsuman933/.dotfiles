@@ -1,0 +1,723 @@
+<html ng-app="siteBlocker">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Block Site Option Page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script src="../jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/HelperService.js"></script>
+    <script type="text/javascript" src="js/checkbox.directive.js"></script>
+    <script type="text/javascript" src="js/filter.js"></script>
+    <script type="text/javascript" src="js/notify.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+    <script type="text/javascript" src="tags-input/tagsInput.js"></script>
+    <script type="text/javascript" src="tags-input/tagItem.js"></script>
+    <link rel="stylesheet" href="tags-input/style.css">
+    <link rel="stylesheet" href="checkbox.css">
+
+
+</head>
+<body ng-controller="MainController">
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/options/options.html"><span>Block</span> Site</a>
+            <ul class="nav navbar-top-links navbar-right">
+
+               <li class="dropdown" title="Contact us">
+                   <a class="dropdown-toggle count-info" href="mailto:rekilamneropysa@gmail.com" target="_blank">
+                       <em class="fa fa-envelope"></em><span class="label label-danger"></span>
+                   </a>
+
+               </li>
+                <li class="dropdown notification-li" title="Notifications">
+                    <a class="dropdown-toggle count-info" ng-click="not.show = !not.show" href="#">
+
+                     <em class="fa fa-bell"></em>
+                    <span class="label label-danger" ng-if="not.unRead > 0">{{ not.unRead }} </span>
+
+                </a>
+                    <ul class="dropdown-menu dropdown-alerts notification" ng-style="not.show ? {'display': 'block'} : {'display': 'none'}">
+
+                        <li ng-repeat="item in not.list track by $index" class="notification">
+                            <a ng-href="{{ item.url }}" target="_blank">
+                            <div>
+                               {{  item.title }}
+                            </div>
+                        </a>
+                            <em
+                                ng-show="not.read.includes(item.id)"
+                                class="message fa fa-envelope pull-right text-muted small"
+                            >
+                            </em>
+                            <em
+                                ng-show="!not.read.includes(item.id)"
+                                class="message fa fa-envelope pull-right text-muted small read"
+                                title="Mark as read"
+                                ng-click="setRead(item.id)"
+                            >
+                            </em>
+                        </li>
+                        <li ng-if="not.list.length === 0"></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+    <div class="divider"></div>
+    <ul class="nav menu">
+        <li
+                ng-click="currentPage = 'dashboard'"
+                ng-class="currentPage == 'dashboard' ? 'active'  : ''"
+        >
+            <a><i class="fa fa-align-justify"></i> Dashboard</a>
+        </li>
+        <li id="modalBtn" ng-click="showLoadModal()" data-toggle="modal" data-target="#myModal">
+            <a><i class="fa fa-arrow-circle-down"></i> Load sites</a>
+        </li>
+        <li id="exportModalBtn" ng-click="showExportModal()" data-toggle="modal" data-target="#exportData">
+            <a><i class="fa fa-arrow-circle-up"></i> Export sites</a>
+        </li>
+
+        <li ng-click="showHourModal()" data-toggle="modal" data-target="#hour_modal">
+            <a><i class="fa fa-clock-o"></i> White time config</a>
+        </li>
+
+        <li ng-click="showExtraConfigModal()"
+            ng-class="currentPage == 'extra_config' ? 'active'  : ''"
+        >
+            <a><i class="fa fa-gear"></i> Extra Configs</a>
+        </li>
+        <li ng-click="showSynchronizeModal()" data-toggle="modal" data-target="#synchronize_modal" ng-if="false">
+            <a><i class="fa fa-refresh"></i> Synchronization</a>
+        </li>
+        <li ng-click="showSetPasswordModal()" data-toggle="modal" data-target="#set_password_modal">
+            <a><i class="fa fa-unlock-alt"></i> Set password</a>
+        </li>
+
+    </ul>
+
+    <p class="text-center">
+        Version {{ appVersion }}
+    </p>
+    <div class="divider"></div>
+    <p class="rate" title="Rate">
+        <a href="https://chrome.google.com/webstore/detail/offfjidagceabmodhpcngpemnnlojnhn/reviews" target="_blank">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </a>
+    </p>
+    <br>
+    <p class="text-center" title="Cross browser blocking">
+        <a href="https://chrome.google.com/webstore/detail/offfjidagceabmodhpcngpemnnlojnhn/reviews" target="_blank" class="btn btn-danger btn-sm">Rate Us</a>
+    </p>
+
+
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="/options/options.html">
+                <em class="fa fa-home"></em>
+            </a></li>
+            <li class="active" ng-if="currentPage == 'dashboard'">Dashboard</li>
+            <li class="active" ng-if="currentPage == 'extra_config'">Extra Configs</li>
+
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row" id="dashboard" ng-show="currentPage == 'dashboard'">
+        <div class="col-lg-12">
+            <div class="input-group">
+                <input
+                        type="text"
+                        class="form-control input-md"
+                        placeholder="Add site to block"
+                        id="custom_site"
+                        ng-model="newSite"
+                        ng-class="{ 'error' : errorSite}"
+                        ng-keydown="$event.keyCode === 13 && addSite()"
+                >
+                <span class="input-group-btn">
+								<button class="btn btn-primary btn-md" ng-click="addSite()">
+									Add
+								</button>
+						</span>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="col-lg-12">
+            <br>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            Blocked List ({{ siteList.length }})
+                            <span ng-click="sortList()"><i class="fa fa-sort"></i></span>
+                        </th>
+                        <th class="action_btns">
+                           <div class="btn-group" ng-show="siteList.length > 0">
+                               <button class="btn btn-primary" ng-click="saveChanges()" title="Save changes">
+                                   <i class="fa fa-save"></i>
+                               </button>
+                               <button class="btn" ng-click="clearList()" title="Clear List">
+                                   <i class="fa fa-trash"></i>
+                               </button>
+                           </div>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="site in siteList | orderBy:'toString()':sortReverse track by $index">
+                        <td class='site_name'>
+                            <a ng-href="{{'http://' + site }}" target='_blank'>{{ site }}</a>
+                        </td>
+                        <td class='td_btn'>
+                            <i class="fa fa-minus-circle" ng-click="removeSite(site)"></i>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-center">
+                <button class="btn btn-primary" ng-click="saveChanges()">
+                    <i class="fa fa-save"></i> Save changes
+                </button>
+            </p>
+
+            <div class="iframe-container">
+                <iframe src="" frameborder="0" width="100%" height="220"></iframe>
+            </div>
+
+
+        </div>
+
+    </div><!--/.row-->
+
+    <div class="row" id="extraConfig" ng-show="currentPage == 'extra_config'">
+        <div class="col-md-12">
+            <h4 style="text-align: center">Extra Configs</h4>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Redirect blocked sites to</div>
+                <div class="panel-body">
+
+                    <div class="input-group">
+                        <input
+                                type="text"
+                                class="form-control input-md"
+                                id="redirect_url"
+                                placeholder="Enter site url"
+                                ng-model="redirect_url"
+                                >
+                        <span class="input-group-btn">
+								<button
+                                        class="btn btn-primary btn-md"
+                                        ng-click="saveRedirectUrl()">
+                                    <i class="fa fa-check"></i>
+                                </button>
+						</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <table class="table extra-config">
+                <tr>
+                    <td>
+                        <label class="modal_label" for="whiteList">White List Mode</label>
+                    </td>
+                    <td class="right">
+                        <switch-checkbox
+                                is-checked="checkbox.whiteList"
+                                element-id="whiteList"
+                        >
+                        </switch-checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="modal_label" for="close_blobed_sites">
+                            Close blocked tabs automatically
+                        </label>
+                    </td>
+                    <td class="right">
+                        <switch-checkbox
+                                is-checked="checkbox.optionCloseTabs"
+                                element-id="close_blobed_sites"
+                        >
+                        </switch-checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="modal_label" for="subdomainOption">Block sites subdomain</label>
+                    </td>
+                    <td class="right">
+                        <switch-checkbox is-checked="checkbox.subdomainOption" element-id="subdomainOption">
+                        </switch-checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="modal_label" for="iframeOption">Block sites frames in other sites</label>
+                    </td>
+                    <td class="right">
+                        <switch-checkbox is-checked="checkbox.iframeOption" element-id="iframeOption">
+                        </switch-checkbox>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="modal_label" for="blockKeyOption">Block sites by keys</label>
+                    </td>
+                    <td class="right">
+                        <switch-checkbox is-checked="checkbox.blockKeyOption" element-id="blockKeyOption">
+                        </switch-checkbox>
+                    </td>
+                </tr>
+                <tr ng-show="checkbox.blockKeyOption">
+                    <td colspan="2">
+                        <label>Block site if host contains this keywords</label>
+                        <custom-tags-input
+                                tag-list="tagList"
+                                display-property="key"
+                                add-on-blur="true"
+                                allow-duplicate="false"
+                                place-holder='Enter key to block'
+                                error-messages="errorMessages"
+                                regex="regex"
+                        >
+
+                        </custom-tags-input>
+                        <br>
+                        <p>
+                            <label>Enter JS pattern to block</label>
+                            <br/>
+                            <input
+                                    class="block-pattern-input"
+                                    ng-model="blockPattern"
+                            >
+                            <input
+                                    class="block-pattern-flag"
+                                    ng-model="blockPatternFlag"
+                                    placeholder="Flag"
+                            >
+                        </p>
+
+                        <div class="display-pattern" ng-if="blockPattern">
+                            <code>
+                                <span class="hl-comment">//Check it in console before saving !</span>
+                                <p>
+                                    <span class="hl-keyword">var</span> regex =
+                                    <span class="hl-regex">new RegExp("{{ blockPattern }}"{{ blockPatternFlag ? ',"'+blockPatternFlag+'"' : '' }});</span>
+                                </p>
+                                <p>
+                                    currentSite = <span class="hl-string">'facebook.com'</span>;
+                                    <span class="hl-comment">//remove http, https, www from site</span>
+                                </p>
+                                <p>
+                                    regex.test(currentSite)
+                                </p>
+                            </code>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+
+            <p ng-show="showPassInput">
+                <label for="extraConfigPassword">Enter password</label>
+                <input
+                        type="password"
+                        ng-model="extraConfigPasswordModel"
+                        class="form-control"
+                        id="extraConfigPassword"
+                        autofocus
+                >
+            </p>
+            <p class="right">
+                <button class="btn btn-primary" ng-click="saveExtraConfig()">
+                    <i class="fa fa-save"></i> Save Changes
+                </button>
+            </p>
+
+        </div>
+
+        <div class="iframe-container" ng-if="currentPage == 'extra_config'">
+            <iframe ng-src="" frameborder="0" width="100%" height="220"></iframe>
+        </div>
+    </div>
+
+
+</div>    <!--/.main-->
+
+<a href="#" class="scrollToTop">
+    <i class="fa fa-arrow-circle-o-up"></i>
+</a>
+
+<!--Modals-->
+<div id="myModal" class="modal fade" role="dialog">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Load site list to block</h4>
+            </div>
+            <div class="modal-body">
+                <p> Enter site list to block separated by new line (with 'enter')</p>
+                <p>
+                        <textarea
+                                class="form-control"
+                                rows="10"
+                                id="site_list"
+                                ng-model="loadDataListModel"
+                        >
+                    </textarea>
+                </p>
+                <p>
+                    <button
+                            class="btn btn-md btn-primary"
+                            id="load_list"
+                            ng-click="loadSiteDataList()"
+                    >
+                        Load
+                    </button>
+                </p>
+                <div id="footer_result">
+                    <p ng-repeat="item in loadDataResult">
+                        <b ng-class="item.className">
+                            {{ item.site }}
+                        </b>
+                        {{ item.message }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="passwordModal" class="modal fade" role="dialog">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Enter password</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input
+                            autofocus
+                            type="password"
+                            id="user_password"
+                            class="form-control"
+                            ng-model="sitePassword"
+                    >
+                    <span class="input-group-btn">
+                            <button
+                                    class="btn btn-primary"
+                                    id="passwordConfirm"
+                                    ng-click="saveWithPass()"
+                            >
+                        <i class="fa fa-check"></i>
+                    </button>
+                 </span>
+                </div>
+                <br>
+                <p id="removed_site" ng-if="removedSite">
+                    to unblock
+                    <a
+                            ng-href="{{ 'http://' + removedSite }}"
+                            target="_blank"
+                    >
+                        {{ removedSite }}
+                    </a>
+                </p>
+                <p ng-if="unblockedSite">
+                    <a ng-href="{{ 'http://' + unblockedSite }}" target="_blank">{{ unblockedSite }}</a>
+                    is unblocked !
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="exportData" class="modal fade" role="dialog">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Export site list</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                        <textarea
+                                id="exportTxt"
+                                class="form-control"
+                                rows="10"
+                                ng-model="exportDataModel"
+                        >
+                        </textarea>
+                </p>
+
+                <p>
+                    Count: <b>{{ siteList.length }} </b>
+                    <a
+                            class="btn btn-sm btn-primary pull-right"
+                            id="copyText"
+                            ng-click="copyText()"
+                    >Copy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="hour_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>White Hour config</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <label class="hour" for="hour_option">Activate white time range config</label>
+                    </div>
+                    <div class="col-md-4">
+                        <switch-checkbox is-checked="checkbox.optionHour" element-id="hour_option">
+                        </switch-checkbox>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ng-show="checkbox.optionHour">
+
+
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>From</td>
+                                    <td>To</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr ng-repeat="hour in hour_config_extra track by $index">
+                                    <td>
+                                        <select class="form-control" ng-model="hour_config_extra[$index].start">
+                                            <option ng-value="time" ng-repeat="time in timeRange">
+                                                {{ time }}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" ng-model="hour_config_extra[$index].end">
+                                            <option ng-value="time" ng-repeat="time in timeRange">
+                                                {{ time }}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="fa fa-close remove-item" ng-click="removeHourItem($index)"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p><a href="" ng-click="addExtraTime()">Add time range</a></p>
+
+                            <p>
+                                Current time is: <b>{{ now }} </b>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <p ng-show="showPassInput">
+                    <label for="hour-modal-password">Enter password</label>
+                    <input
+                            type="password"
+                            ng-model="hourPasswordModel"
+                            class="form-control"
+                            id="hour-modal-password"
+                            autofocus
+                    >
+                </p>
+
+                <div class="alert bg-success" role="alert"  ng-if="hourSaved">
+                    <em class="fa fa-lg fa-info">&nbsp;</em>
+                   Saved
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>
+                    <button class="btn btn-primary" ng-click="saveHourChanges()"> Save</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="synchronize_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Synchronization/Uninstall protection</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="key_input">Enter your key</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="key_input"
+                            placeholder="Key"
+                            ng-model="keyInput"
+                    >
+                </div>
+                <p ng-show="showPassInput">
+                    <label for="synch-modal-password">Enter password</label>
+                    <input
+                            type="password"
+                            ng-model="synchModalPassword"
+                            class="form-control"
+                            id="synch-modal-password"
+                    >
+                </p>
+                <br>
+                <p>
+                    <button class="btn btn-primary" ng-click="synchronizeSaveToDb()">
+                        <i class="fa fa-arrow-circle-up"></i> Save to Server
+                    </button>
+
+                    <button class="btn btn-danger pull-right" ng-click="synchronizeLoadFromExternal()">
+                        <i class="fa fa-arrow-circle-down"></i> Load From Server
+                    </button>
+                </p>
+
+
+                <div class="alert bg-danger" role="alert"  ng-if="keyError">
+                    <em class="fa fa-lg fa-warning">&nbsp;</em>
+                    <strong>Error: </strong> {{ keyError }}
+                    <a href="#" class="pull-right"  ng-click="hideAlert()">
+                        <em class="fa fa-lg fa-close"></em>
+                    </a>
+                </div>
+
+                <div class="alert bg-info" role="alert"  ng-if="infoKey">
+                    <em class="fa fa-lg fa-warning">&nbsp;</em>
+                    {{ infoKey }}
+                    <a href="#" class="pull-right"  ng-click="hideAlert()">
+                        <em class="fa fa-lg fa-close"></em>
+                    </a>
+                </div>
+
+                <br/> <br/>
+
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <a href="" target="_blank" class="pull-left">Get Premium Key</a>
+
+                    <a href="" target="_blank">Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="set_password_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Set Password</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div  ng-show="!showPassInput">
+                            <div class="input-group">
+                                <input
+                                        autofocus
+                                        type="password"
+                                        class="form-control set-password"
+                                        id="password"
+                                        placeholder="Enter password"
+                                        ng-model="userPassword"
+                                        typeof="text"
+                                >
+                                <span class="input-group-btn">
+                            <button
+                                    class="btn btn-info btn-sm"
+                                    id="save_pass"
+                                    ng-click="setPassword()"
+                            >
+                            <i class="fa fa-save set-pass"></i>
+                        </button>
+                        </span>
+                            </div>
+
+                        </div>
+
+                        <p class="text-center" ng-show="showPassInput">
+                            <button
+
+                                    class="btn btn-danger btn-sm"
+                                    id="remove_pass"
+                                    title="Remove password"
+                                    ng-click="removePassword()"
+
+                            > <i class="fa fa-remove"></i> Remove password
+                            </button>
+                        </p>
+                        <br>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

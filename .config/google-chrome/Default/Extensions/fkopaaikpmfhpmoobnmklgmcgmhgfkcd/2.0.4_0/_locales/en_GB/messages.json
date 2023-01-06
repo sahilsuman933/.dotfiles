@@ -1,0 +1,8 @@
+{
+   "desc": {
+      "message": "Speed manager for HTML5 videos. Control video speed, speed up, slow down, advance and rewind using the keyboard."
+   },
+   "name": {
+      "message": "Video Speed Controller"
+   }
+}

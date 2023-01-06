@@ -1,0 +1,2 @@
+2023-01-06 16:56:02.375 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/mnt/study/.caa/caa.conf","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
+2023-01-06 16:56:05.786 [info] [perf] Render performance baseline is 30ms

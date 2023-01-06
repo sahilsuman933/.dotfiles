@@ -1,0 +1,8 @@
+{
+   "desc": {
+      "message": "Ovladač rychlosti pro videa HTML5. Spravujte rychlost videa, zrychlujte, zpomalujte, posouvejte vpřed a vzad pomocí klávesnice."
+   },
+   "name": {
+      "message": "Ovladač rychlosti videa"
+   }
+}

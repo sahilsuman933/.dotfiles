@@ -1,0 +1,5 @@
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	pamixer -{i,d,t} 2;
+
+XF86MonBrightness{Up,Down}
+	brightnessctl s {+2%,2%-}

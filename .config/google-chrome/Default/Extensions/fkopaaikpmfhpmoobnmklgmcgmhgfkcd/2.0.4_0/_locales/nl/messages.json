@@ -1,0 +1,8 @@
+{
+   "desc": {
+      "message": "Snelheidsregelaar voor HTML5-video's. Beheer videosnelheid, versnellen, vertragen, vooruitspoelen en terugspoelen met behulp van het toetsenbord."
+   },
+   "name": {
+      "message": "video snelheidsregelaar"
+   }
+}

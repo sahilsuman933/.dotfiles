@@ -1,0 +1,1 @@
+!function(n){n.filter("timeFilter",(function(){return function(n){return n+":00"}}))}(app);

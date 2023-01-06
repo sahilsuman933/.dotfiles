@@ -1,0 +1,14 @@
+[Default Applications]
+font/ttf=Alacritty.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/pdf=microsoft-edge.desktop
+video/mp4=vlc.desktop
+
+[Added Associations]
+font/ttf=Alacritty.desktop;
+application/pdf=microsoft-edge.desktop;
+video/mp4=vlc.desktop;

@@ -1,0 +1,1 @@
+var len=0;null!=localStorage.sites&&(len=JSON.parse(localStorage.sites).length),document.getElementById("count").innerHTML=len;

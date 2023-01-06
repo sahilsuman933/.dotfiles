@@ -1,0 +1,8 @@
+{
+   "desc": {
+      "message": "Controlador de velocidade para vídeos HTML5. Gerencie a velocidade do vídeo, acelere, desacelere, avance e retroceda usando o teclado."
+   },
+   "name": {
+      "message": "controlador de velocidade de vídeo"
+   }
+}

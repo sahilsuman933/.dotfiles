@@ -1,0 +1,35 @@
+{
+   "action": {
+      "default_icon": "icons/38.png",
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "inject.css", "shadow.css" ],
+      "exclude_matches": [ "https://plus.google.com/hangouts/*", "https://hangouts.google.com/hangouts/*", "https://meet.google.com/*", "https://teamtreehouse.com/*", "http://www.hitbox.tv/*" ],
+      "js": [ "inject.js" ],
+      "matches": [ "http://*/*", "https://*/*", "file:///*" ]
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_desc__",
+   "icons": {
+      "128": "icons/128.png",
+      "19": "icons/19.png",
+      "38": "icons/38.png",
+      "48": "icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsXhFANyaT6b8m5F4XC/0Rf55z1fL9Kjb6Nujhr4hzxSLnaxliEs1GM4TRpEXSh1jp8ny7HsId7zlHdw1gLp4o+jGZVGRe9u8hj647weqTvQJ4qpx36taG44ZE8gTore4pT4uNmuKFJE89l7qbn8kRRrtn7ctOsG3HAYGdmo2ndViOSZU7Uim2Ca5UfMYneSQ3GV9uU1736AbKeYf1VqCsItMCgWAgj52G5ulfEAOHbj//vhWDV71nO0OUwXdq6cP2QDHz0ZGGBpkPfprz+VJmrWTIWx+3m2XpfcrV86Dh8umRve/DevJElwQ9n2wQJybDBTfZaXk9aRFUNFmA5ZiqQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_name__",
+   "options_page": "options.html",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.4",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "inject.css", "shadow.css" ]
+   } ]
+}
