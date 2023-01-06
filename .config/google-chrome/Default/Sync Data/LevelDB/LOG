@@ -1,3 +1,6 @@
-2023/01/06-19:16:27.025 3140 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Sync Data/LevelDB/MANIFEST-000001
-2023/01/06-19:16:27.025 3140 Recovering log #33
-2023/01/06-19:16:27.026 3140 Reusing old log /home/sahilsuman/.config/google-chrome/Default/Sync Data/LevelDB/000033.log 
+2023/01/06-16:44:35.019 6891 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Sync Data/LevelDB/MANIFEST-000001
+2023/01/06-16:44:35.019 6891 Recovering log #51
+2023/01/06-16:44:35.020 6891 Reusing old log /home/sahilsuman/.config/google-chrome/Default/Sync Data/LevelDB/000051.log 
+2023/01/06-16:46:18.304 6892 Level-0 table #56: started
+2023/01/06-16:46:18.307 6892 Level-0 table #56: 102376 bytes OK
+2023/01/06-16:46:18.309 6892 Delete type=0 #51

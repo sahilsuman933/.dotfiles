@@ -1,6 +1,24 @@
-2023/01/06-19:16:27.023 3 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
-2023/01/06-19:16:27.024 3 Recovering log #73
-2023/01/06-19:16:27.024 3 Reusing old log /home/sahilsuman/.config/google-chrome/Default/Local Storage/leveldb/000073.log 
-2023/01/06-19:17:52.416 3 Level-0 table #77: started
-2023/01/06-19:17:52.422 3 Level-0 table #77: 31955 bytes OK
-2023/01/06-19:17:52.427 3 Delete type=0 #73
+2023/01/06-16:44:35.015 5 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
+2023/01/06-16:44:35.016 5 Recovering log #136
+2023/01/06-16:44:35.016 5 Reusing old log /home/sahilsuman/.config/google-chrome/Default/Local Storage/leveldb/000136.log 
+2023/01/06-16:44:54.238 3 Level-0 table #141: started
+2023/01/06-16:44:54.243 3 Level-0 table #141: 24859 bytes OK
+2023/01/06-16:44:54.247 3 Delete type=0 #136
+2023/01/06-16:54:42.502 3 Level-0 table #143: started
+2023/01/06-16:54:42.508 3 Level-0 table #143: 43012 bytes OK
+2023/01/06-16:54:42.512 3 Delete type=0 #140
+2023/01/06-16:55:42.829 3 Level-0 table #145: started
+2023/01/06-16:55:42.834 3 Level-0 table #145: 24406 bytes OK
+2023/01/06-16:55:42.837 3 Delete type=0 #142
+2023/01/06-17:00:55.792 b Level-0 table #147: started
+2023/01/06-17:00:55.797 b Level-0 table #147: 8469 bytes OK
+2023/01/06-17:00:55.800 b Delete type=0 #144
+2023/01/06-17:00:55.800 b Compacting 4@0 + 1@1 files
+2023/01/06-17:00:55.811 b Generated table #148@0: 1576 keys, 329813 bytes
+2023/01/06-17:00:55.811 b Compacted 4@0 + 1@1 files => 329813 bytes
+2023/01/06-17:00:55.813 b compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/01/06-17:00:55.813 b Delete type=2 #147
+2023/01/06-17:00:55.814 b Delete type=2 #143
+2023/01/06-17:00:55.814 b Delete type=2 #145
+2023/01/06-17:00:55.814 b Delete type=2 #138
+2023/01/06-17:00:55.814 b Delete type=2 #141

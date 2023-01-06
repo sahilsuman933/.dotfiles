@@ -1,3 +1,6 @@
-2023/01/06-19:16:27.195 316c Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Extension State/MANIFEST-000001
-2023/01/06-19:16:27.195 316c Recovering log #3
-2023/01/06-19:16:27.197 316c Reusing old log /home/sahilsuman/.config/google-chrome/Default/Extension State/000003.log 
+2023/01/06-16:44:35.261 6890 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/Extension State/MANIFEST-000001
+2023/01/06-16:44:35.261 6890 Recovering log #3
+2023/01/06-16:44:35.268 6890 Reusing old log /home/sahilsuman/.config/google-chrome/Default/Extension State/000003.log 
+2023/01/06-16:45:36.205 6891 Level-0 table #5: started
+2023/01/06-16:45:36.222 6891 Level-0 table #5: 2240552 bytes OK
+2023/01/06-16:45:36.226 6891 Delete type=0 #3

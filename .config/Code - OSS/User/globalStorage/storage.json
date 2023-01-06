@@ -2,12 +2,12 @@
     "telemetry.machineId": "5b7b883011da39c316fbd99fd78dd6f117cd081cc600c981177caa760a27cc48",
     "backupWorkspaces": {
         "workspaces": [],
-        "folders": [],
-        "emptyWindows": [
+        "folders": [
             {
-                "backupFolder": "1673004494994"
+                "folderUri": "file:///home/sahilsuman/.local/bin"
             }
-        ]
+        ],
+        "emptyWindows": []
     },
     "lastKnownMenubarData": {
         "menus": {
@@ -54,37 +54,183 @@
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
-                                    "id": "openRecentFile",
+                                    "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/sahilsuman/.caa/caa.conf",
-                                        "path": "/home/sahilsuman/.caa/caa.conf",
+                                        "external": "file:///home/sahilsuman/.local/bin",
+                                        "path": "/home/sahilsuman/.local/bin",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/.caa/caa.conf"
+                                    "label": "~/.local/bin"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///sys/devices/pci0000%3A00/0000%3A00%3A1d.5/0000%3A03%3A00.0/net/wlp3s0",
+                                        "path": "/sys/devices/pci0000:00/0000:00:1d.5/0000:03:00.0/net/wlp3s0",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/sys/devices/pci0000:00/0000:00:1d.5/0000:03:00.0/net/wlp3s0"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.cache",
+                                        "path": "/home/sahilsuman/.cache",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.cache"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.local/src/dwm",
+                                        "path": "/home/sahilsuman/.local/src/dwm",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.local/src/dwm"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman",
+                                        "path": "/home/sahilsuman",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/home/sahilsuman"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.config/sxhkd",
+                                        "path": "/home/sahilsuman/.config/sxhkd",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.config/sxhkd"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
                                 },
                                 {
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///mnt/study/.caa/caa.conf",
-                                        "path": "/mnt/study/.caa/caa.conf",
+                                        "external": "file:///home/sahilsuman/.local/share/emoji",
+                                        "path": "/home/sahilsuman/.local/share/emoji",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "/mnt/study/.caa/caa.conf"
+                                    "label": "~/.local/share/emoji"
                                 },
                                 {
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///mnt/study/caa_x64.tar/caa_x64/.caa/caa.conf",
-                                        "path": "/mnt/study/caa_x64.tar/caa_x64/.caa/caa.conf",
+                                        "external": "file:///sys/class/net/wlp3s0/operstate",
+                                        "path": "/sys/class/net/wlp3s0/operstate",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "/mnt/study/caa_x64.tar/caa_x64/.caa/caa.conf"
+                                    "label": "/sys/class/net/wlp3s0/operstate"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///proc/net/wireless",
+                                        "path": "/proc/net/wireless",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/proc/net/wireless"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/proc/net/wireless",
+                                        "path": "/home/sahilsuman/proc/net/wireless",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/proc/net/wireless"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///sys/class/power_supply/BAT1/capacity",
+                                        "path": "/sys/class/power_supply/BAT1/capacity",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/sys/class/power_supply/BAT1/capacity"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///sys/class/power_supply/BAT1/status",
+                                        "path": "/sys/class/power_supply/BAT1/status",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/sys/class/power_supply/BAT1/status"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.local/bin/dwm_bar",
+                                        "path": "/home/sahilsuman/.local/bin/dwm_bar",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.local/bin/dwm_bar"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.xinitrc",
+                                        "path": "/home/sahilsuman/.xinitrc",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.xinitrc"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.ssh/id_rsa.pub",
+                                        "path": "/home/sahilsuman/.ssh/id_rsa.pub",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.ssh/id_rsa.pub"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sahilsuman/.ssh/id_rsa",
+                                        "path": "/home/sahilsuman/.ssh/id_rsa",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.ssh/id_rsa"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -229,6 +375,10 @@
                     {
                         "id": "workbench.action.closeActiveEditor",
                         "label": "&&Close Editor"
+                    },
+                    {
+                        "id": "workbench.action.closeFolder",
+                        "label": "Close &&Folder"
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -424,7 +574,8 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "&&Primary Side Bar"
+                                    "label": "&&Primary Side Bar",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleAuxiliaryBar",
@@ -670,8 +821,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -680,8 +830,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1183,6 +1332,11 @@
                 "label": "Ctrl+W",
                 "userSettingsLabel": "ctrl+w"
             },
+            "workbench.action.closeFolder": {
+                "label": "Ctrl+K F",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k f"
+            },
             "workbench.action.closeWindow": {
                 "label": "Alt+F4",
                 "userSettingsLabel": "alt+f4"
@@ -1568,14 +1722,15 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
             "activityBarWidth": 48,
-            "sideBarWidth": 0,
+            "sideBarWidth": 262,
             "statusBarHeight": 22,
             "windowBorder": false
         }
     },
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/sahilsuman/.config/Code - OSS/Backups/1673004494994",
+            "folder": "file:///home/sahilsuman/.local/bin",
+            "backupPath": "/home/sahilsuman/.config/Code - OSS/Backups/02a717b44b85a75a156cd66f515e9efc",
             "uiState": {
                 "mode": 1,
                 "x": 3,
