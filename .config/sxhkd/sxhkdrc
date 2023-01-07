@@ -3,3 +3,12 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+2%,2%-}
+
+Print
+	maim --select | tee ~/Pictures/Screenshots/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+super + Print 
+	maim | tee ~/Pictures/Screenshots/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+super + Escape
+	system_action	
