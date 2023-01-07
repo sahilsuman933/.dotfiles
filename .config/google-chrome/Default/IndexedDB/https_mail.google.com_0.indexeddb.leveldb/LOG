@@ -1,9 +1,0 @@
-2023/01/06-17:00:50.420 a25d Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/01/06-17:00:50.420 a25d Recovering log #12
-2023/01/06-17:00:50.422 a25d Reusing old log /home/sahilsuman/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000012.log 
-2023/01/06-17:00:55.103 a2da Compacting 1@1 + 1@2 files
-2023/01/06-17:00:55.111 a2da Generated table #15@1: 184 keys, 352858 bytes
-2023/01/06-17:00:55.111 a2da Compacted 1@1 + 1@2 files => 352858 bytes
-2023/01/06-17:00:55.112 a2da compacted to: files[ 0 0 1 0 0 0 0 ]
-2023/01/06-17:00:55.113 a2da Delete type=2 #13
-2023/01/06-17:00:55.113 a2da Delete type=2 #10

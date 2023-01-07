@@ -1,4 +1,0 @@
-2023-01-06 16:55:10.120 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/mnt/study/caa_x64.tar/caa_x64/.caa/caa.conf","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
-2023-01-06 16:55:10.540 [info] Started initializing default profile extensions in extensions installation folder. file:///home/sahilsuman/.vscode-oss/extensions
-2023-01-06 16:55:10.563 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/sahilsuman/.vscode-oss/extensions
-2023-01-06 16:55:13.586 [info] [perf] Render performance baseline is 30ms

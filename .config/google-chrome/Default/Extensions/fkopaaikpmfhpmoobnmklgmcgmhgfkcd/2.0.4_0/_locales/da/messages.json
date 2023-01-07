@@ -1,8 +1,0 @@
-{
-   "desc": {
-      "message": "Hastighedscontroller til HTML5-videoer. Administrer videohastighed, hastighed op, sænk farten, frem og tilbage ved hjælp af tastaturet."
-   },
-   "name": {
-      "message": "videohastighedsregulator"
-   }
-}

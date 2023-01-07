@@ -1,8 +1,0 @@
-{
-   "desc": {
-      "message": "Controlador de velocitat per a vídeos HTML5. Gestioneu la velocitat del vídeo, accelereu, alentiu, avança i rebobina amb el teclat."
-   },
-   "name": {
-      "message": "Controlador de velocitat de vídeo"
-   }
-}

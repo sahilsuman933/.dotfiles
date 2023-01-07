@@ -1,6 +1,0 @@
-2023/01/06-15:59:26.852 2de6 Reusing MANIFEST /home/sahilsuman/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/01/06-15:59:26.852 2de6 Recovering log #7
-2023/01/06-15:59:26.862 2de6 Reusing old log /home/sahilsuman/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000007.log 
-2023/01/06-15:59:29.684 2de6 Level-0 table #13: started
-2023/01/06-15:59:29.705 2de6 Level-0 table #13: 2036975 bytes OK
-2023/01/06-15:59:29.709 2de6 Delete type=0 #7
